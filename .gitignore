@@ -1,0 +1,53 @@
+# Build folders
+bin/
+obj/
+
+# Visual Studio
+.vs/
+
+# VS Code
+.vscode/
+
+# Rider
+.idea/
+
+# User files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# EF Core
+Migrations/*.Designer.cs
+
+# Publish output
+publish/
+
+# Test results
+TestResults/
+
+# NuGet
+*.nupkg
+
+# Docker
+docker-compose.override.yml
+
+# App secrets
+appsettings.Development.json
+appsettings.Local.json
+
+# Node
+node_modules/
+
+# Angular
+dist/
+
+# Coverage
+coverage/

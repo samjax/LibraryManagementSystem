@@ -1,0 +1,13 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: rentmanagement-sql
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Rent@12345"
+    ports:
+      - "1433:1433"
+    volumes:
+      - /Users/sampath/Documents/sampath/sqlserver:/var/opt/mssql
+
+#we are not using this configuration as the database is already running. I just need to create a new DB called LibraryMgmtDB
