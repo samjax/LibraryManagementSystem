@@ -1,6 +1,8 @@
-namespace LibraryManagment.Api.Models
+using LibraryManagment.Api.Models;
+
+namespace LibraryManagment.Api.DTOs
 {
-    public class Patron
+    public class PatronDto
     {
         public int PatronId { get; set; }
         public string? Name { get; set; } = string.Empty;
