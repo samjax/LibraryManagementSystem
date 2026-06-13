@@ -74,14 +74,17 @@ public class BookService : IBookService
         };  
     }
 
-    public BookDto? UpdateBook(int bookId, BookForCreationDto bookForCreationDto)
+    public BookDto? UpdateBook(int bookId, BookForUpdateDto bookForUpdateDto)
     {
-        Book? book = _bookRepository.GetBookById(bookId);
-        if (book == null)
+        Book? existingBook = _bookRepository.GetBookById(bookId);
+        if (existingBook == null)
         {
             return null;
         }
-        Book? updatedBook = _bookRepository.UpdateBook(book, bookForCreationDto);
+        existingBook.Title = bookForUpdateDto.Title;
+        existingBook.Description = bookForUpdateDto.Description;
+        
+        Book? updatedBook = _bookRepository.UpdateBook(existingBook);
         if (updatedBook == null)
         {
             return null;

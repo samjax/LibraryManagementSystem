@@ -56,9 +56,9 @@ public class LibraryController : ControllerBase
     }
 
     [HttpPut("books/{id}")]
-    public IActionResult UpdateBook(int id, BookForCreationDto bookForCreationDto)
+    public IActionResult UpdateBook(int id, BookForUpdateDto bookForUpdateDto)
     {
-        var updatedBook = _bookService.UpdateBook(id, bookForCreationDto);
+        var updatedBook = _bookService.UpdateBook(id, bookForUpdateDto);
         if (updatedBook == null)
         {
             return NotFound();

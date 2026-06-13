@@ -1,0 +1,8 @@
+namespace LibraryManagment.Api.DTOs
+{
+    public class BookForUpdateDto
+    {
+        public string? Title { get; set; }
+        public string? Description { get; set; }
+    }
+}

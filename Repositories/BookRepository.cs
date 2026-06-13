@@ -1,6 +1,5 @@
 using LibraryManagment.Api.Models;
 using LibraryManagment.Api.Database;
-using LibraryManagment.Api.DTOs;
 
 
 namespace LibraryManagment.Api.Repositories;
@@ -14,7 +13,7 @@ public class BookRepository : IBookRepository
     }
     public Book? CreateBook(Book book)
     {
-       //check if the book already exists, if it exists return null
+       // check if the book already exists, if it exists return null
        // if it doesn't exist add it to the database and return the created book
       bool checkIfExists = _libraryDbContext.Books.Any(b => b.Title == book.Title); // if it exists throw an exception or return null
       if (checkIfExists)
@@ -50,17 +49,13 @@ public class BookRepository : IBookRepository
         return book; 
     }
 
-    public Book? UpdateBook(Book book, BookForCreationDto bookForCreationDto)
+    public Book? UpdateBook(Book book)
     {
-        Book? book1 = _libraryDbContext.Books.FirstOrDefault(b => b.Description == book.Description);
-        if(book1 == null)
-        {
-            return null;
-        }
-        book1.Title = bookForCreationDto.Title;
-        book1.Description = bookForCreationDto.Description;
-        book1.IsCheckedOut = book.IsCheckedOut;
+        // Since we fetched the book by id in the service layer, the DbContext
+        // has been tracking that object for changes. When we updated the 
+        // title and description in service layer was aware of it so all we have
+        // to do here is to save the changes.
         _libraryDbContext.SaveChanges(); 
-        return book1;
+        return book;
     }
 }

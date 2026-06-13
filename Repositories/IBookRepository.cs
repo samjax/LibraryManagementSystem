@@ -7,6 +7,6 @@ public interface IBookRepository
     Book? CreateBook(Book book);
     Book? GetBookById(int bookId);
     IEnumerable<Book> GetAllBooks();
-    Book? UpdateBook(Book book, BookForCreationDto bookForCreationDto);
+    Book? UpdateBook(Book book);
     bool DeleteBook(int bookId);
 }
